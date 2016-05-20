@@ -9,6 +9,7 @@ server.connection({
   host: 'localhost',
   port: process.env.PORT || 8000
 });
+
 server.register(require('inert'), function () {
   // Add the route
   server.route({
