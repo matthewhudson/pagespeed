@@ -7,7 +7,7 @@ var arbitraryImageSize = require('./arbitraryImageSize');
 var server = new Hapi.Server();
 server.connection({
   host: 'localhost',
-  port: process.env.PORT || 8000
+  port: process.env.PORT
 });
 
 server.register(require('inert'), function () {
