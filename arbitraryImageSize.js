@@ -7,7 +7,7 @@ module.exports = function (bytes) {
   var file = {
     name: '/tmp-file',
     extension: 'png',
-    path: '/tmp'//path.join(__dirname, '/tmp')
+    path: path.join(__dirname, '/tmp')
   };
 
   var writeFile = [

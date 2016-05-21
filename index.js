@@ -10,7 +10,11 @@ server.connection({
   port: +process.env.PORT
 });
 
-server.register(require('inert'), function () {
+server.register(require('inert'), function (er) {
+  if (er) {
+      throw er;
+  }
+
   // Add the route
   server.route({
     method: 'GET',
@@ -18,12 +22,12 @@ server.register(require('inert'), function () {
     handler: function (request, reply) {
       var image = arbitraryImageSize(request.query.bytes);
       console.log(image);
-      return reply.file(image);//.type('image/png');
+      reply.file(image);//.type('image/png');
     }
   });
 
   // Start the server
-  server.start((er) => {
+  server.start(function (er) {
     if (er) {
       throw er;
     }
